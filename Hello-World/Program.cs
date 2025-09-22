@@ -27,9 +27,10 @@ static string SignData(string data)
     var keyXml = System.IO.File.ReadAllText("private_key.xml"); // Replace with your key file path
     privateKey.FromXmlString(keyXml);
 
-    int a = 1;
+    int a = 0;
+    int b = 1 / a; // This will throw DivideByZeroException
 
-    if (a == 1)
+    if (a == b)
     {
         throw new Exception("Simulated error after loading private key.");
     }
