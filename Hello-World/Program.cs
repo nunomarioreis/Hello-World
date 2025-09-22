@@ -30,6 +30,8 @@ static string SignData(string data)
     var bytesToSign = Encoding.UTF8.GetBytes(data);
     var signatureBytes = privateKey.SignData(bytesToSign, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
     return Convert.ToBase64String(signatureBytes);
+
+    Console.WriteLine("Nonsense write after return");
 }
 
 bool VerifySignature(string data, string signatureBase64)
