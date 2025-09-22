@@ -27,6 +27,17 @@ static string SignData(string data)
     var keyXml = System.IO.File.ReadAllText("private_key.xml"); // Replace with your key file path
     privateKey.FromXmlString(keyXml);
 
+    int a = 1;
+
+    if (a == 1)
+    {
+        throw new Exception("Simulated error after loading private key.");
+    }
+    else
+    {
+        Console.WriteLine("No error occurred.");
+    }
+
     var bytesToSign = Encoding.UTF8.GetBytes(data);
     var signatureBytes = privateKey.SignData(bytesToSign, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
     return Convert.ToBase64String(signatureBytes);
